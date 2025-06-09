@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1852009870932704054}
   - component: {fileID: 849440554768296245}
   - component: {fileID: 1781289644574809364}
+  - component: {fileID: -7918358640365942540}
   m_Layer: 0
   m_Name: zombie
   m_TagString: Untagged
@@ -140,7 +141,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3161261479359071121}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -180,3 +181,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7918358640365942540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3161261479359071121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5908bd10ed6b760468c27dadef3f5238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zombieSkins:
+  - {fileID: 21300000, guid: 005c8569e1910ef42a3a8abf86c823fa, type: 3}
+  - {fileID: 21300000, guid: 66b9b06eb8232a447a3772b860f81c5a, type: 3}
+  - {fileID: 21300000, guid: bcdb19f40dacc974fa15948812c65bf7, type: 3}
+  - {fileID: 21300000, guid: b2a68fad996606240a274959a0aa3418, type: 3}
+  maxHealth: 2
