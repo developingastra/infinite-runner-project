@@ -44,11 +44,6 @@ public class Playershooting : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
     }
     void Shoot()
     {
