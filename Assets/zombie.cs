@@ -59,5 +59,18 @@ public class zombie : MonoBehaviour
         animator.SetTrigger("Dead");
         Destroy(gameObject, 1f);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            carhealth carhealth = collision.gameObject.GetComponent<carhealth>();
+            if (carhealth != null)
+            {
+                carhealth.TakeDamage(1);  
+                Destroy(gameObject);  
+            }
+        }
+    }
 
 }
