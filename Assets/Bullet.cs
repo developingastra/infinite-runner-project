@@ -6,7 +6,8 @@ public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     public float lifetime = 2f;
-   
+    public float damage = 25f;
+
     void Start()
     {
         Destroy(gameObject, lifetime);
@@ -19,8 +20,14 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Zombie") || other.CompareTag("Obstacle"))
+        if (other.CompareTag("Zombie"))
         {
+            zombie zombie = other.GetComponent<zombie>();
+            if (zombie != null)
+            {
+                zombie.TakeDamage(damage);
+            }
+
             Destroy(gameObject);
         }
     }

@@ -23,12 +23,12 @@ public class audiomanager : MonoBehaviour
     }
     public void PlayReloadSound()
     {
-        PlaySFX(reload);  // Play the reload sound
+        PlaySFX(reload);  
     }
 
     public void PlayGunshotSound()
     {
-        PlaySFX(gunshot);  // Play the gunshot sound
+        PlaySFX(gunshot); 
     }
     void Update()
     {
