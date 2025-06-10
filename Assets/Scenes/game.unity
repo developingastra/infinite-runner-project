@@ -268,8 +268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 3161261479359071121, guid: 8b26249b0b9cee04eb4be66a6ed4ba5e, type: 3}
   spawnPoint: {fileID: 504366208}
-  spawnIntervalMin: 2
-  spawnIntervalMax: 5
+  spawnIntervalMin: 1
+  spawnIntervalMax: 10
 --- !u!4 &255200054
 Transform:
   m_ObjectHideFlags: 0
@@ -415,8 +415,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 3161261479359071121, guid: 8b26249b0b9cee04eb4be66a6ed4ba5e, type: 3}
   spawnPoint: {fileID: 67746749}
-  spawnIntervalMin: 2
-  spawnIntervalMax: 5
+  spawnIntervalMin: 1
+  spawnIntervalMax: 10
 --- !u!4 &403404480
 Transform:
   m_ObjectHideFlags: 0
@@ -883,8 +883,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zombiePrefab: {fileID: 3161261479359071121, guid: 8b26249b0b9cee04eb4be66a6ed4ba5e, type: 3}
   spawnPoint: {fileID: 1552965084}
-  spawnIntervalMin: 2
-  spawnIntervalMax: 5
+  spawnIntervalMin: 1
+  spawnIntervalMax: 10
 --- !u!4 &1368848986
 Transform:
   m_ObjectHideFlags: 0
@@ -999,8 +999,8 @@ Transform:
   m_GameObject: {fileID: 1435348158}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.45, y: -4.79, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.567926, z: 5}
+  m_LocalPosition: {x: -7.45, y: -4.8833, z: 0}
+  m_LocalScale: {x: 0.4, y: 0.4131842, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1844386147}
@@ -1062,10 +1062,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.32695997}
+  m_Offset: {x: 0, y: 0.6030924}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1076,7 +1076,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7, y: 1.2684255}
+  m_Size: {x: 7, y: 1.8206903}
   m_EdgeRadius: 0
 --- !u!114 &1435348164
 MonoBehaviour:
