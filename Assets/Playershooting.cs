@@ -11,7 +11,9 @@ public class Playershooting : MonoBehaviour
 
     public float reloadTime = 2f;
     private bool isReloading = false;
-   
+
+    [SerializeField] private audiomanager audiomanager;
+
     void Start()
     {
         currentAmmo = maxAmmo;
@@ -26,6 +28,7 @@ public class Playershooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && currentAmmo < maxAmmo)
         {
             StartCoroutine(Reload());
+            audiomanager.PlayReloadSound();
             return;
         }
 
@@ -38,10 +41,12 @@ public class Playershooting : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
+            audiomanager.PlayGunshotSound();
         }
         if (currentAmmo <= 0)
         {
             StartCoroutine(Reload());
+            audiomanager.PlayReloadSound();
             return;
         }
     }
