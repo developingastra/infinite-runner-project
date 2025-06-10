@@ -64,11 +64,17 @@ public class zombie : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Car"))
         {
-            carhealth carhealth = collision.gameObject.GetComponent<carhealth>();
-            if (carhealth != null)
+
+            carhealth carHealth = collision.gameObject.GetComponent<carhealth>();
+            if (carHealth != null)
             {
-                carhealth.TakeDamage(1);  
+               
+                carHealth.TakeDamage(1);  
                 Destroy(gameObject);  
+            }
+            else
+            {
+                Debug.LogError("CarHealth component is missing on the car!");
             }
         }
     }

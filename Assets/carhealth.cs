@@ -4,31 +4,56 @@ using UnityEngine;
 
 public class carhealth : MonoBehaviour
 {
+    public static carhealth Instance;  
+
     [Header("Car Health Settings")]
-    public int maxHealth = 10;  
+    public int maxHealth = 10;
     private int currentHealth;
 
-   void Start()
+    private void Awake()
     {
-        currentHealth = maxHealth;  
+       
+        if (Instance == null)
+        {
+            Instance = this; 
+        }
+        else
+        {
+            Destroy(gameObject);  
+        }
+    }
+
+    void Start()
+    {
+        currentHealth = maxHealth;
+        
+        if (uimanager.Instance != null)
+        {
+            uimanager.Instance.UpdateHealth(currentHealth);  
+        }
+        else
+        {
+            Debug.LogError("UIManager is not initialized or present in the scene.");
+        }
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Car Health: " + currentHealth);
 
-        if (currentHealth <= 0)
-        {
-            DestroyCar();
-        }
+        Debug.Log("Car hit! Game Over!");
+
+       
+        GameOverManager.Instance.ShowGameOver(HighScoreManager.Instance.GetCurrentScore());
+
+        
+        Destroy(gameObject);
     }
-
-    
-    private void DestroyCar()
+    private void Die()
     {
         Debug.Log("Car Destroyed!");
-        Destroy(gameObject);  
+       
+        Destroy(gameObject);
     }
 
     void Update()

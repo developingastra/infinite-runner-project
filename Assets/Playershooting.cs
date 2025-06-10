@@ -54,6 +54,7 @@ public class Playershooting : MonoBehaviour
     {
         Instantiate(bulletsPrefab, Gunshot.position, Gunshot.rotation);
         currentAmmo--;
+        uimanager.Instance.UpdateAmmo(currentAmmo);
         Debug.Log("Shots left: " + currentAmmo);
     }
 
