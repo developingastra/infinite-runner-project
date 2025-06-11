@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class carhealth : MonoBehaviour
 {
-    public static carhealth Instance;  
-
-    [Header("Car Health Settings")]
-    public int maxHealth = 10;
-    private int currentHealth;
-
+    public static carhealth Instance; 
+    
     private void Awake()
     {
-       
         if (Instance == null)
         {
-            Instance = this; 
+            Instance = this;  
         }
         else
         {
@@ -23,41 +18,20 @@ public class carhealth : MonoBehaviour
         }
     }
 
-    void Start()
+   
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        currentHealth = maxHealth;
         
-        if (uimanager.Instance != null)
+        if (other.CompareTag("Zombie"))
         {
-            uimanager.Instance.UpdateHealth(currentHealth);  
+          
+            Debug.Log("Car hit by a zombie! Game Over!");
+
+          
+            GameOverManager.Instance.ShowGameOver(HighScoreManager.Instance.GetHighScore());
+
+           
+            Destroy(gameObject);
         }
-        else
-        {
-            Debug.LogError("UIManager is not initialized or present in the scene.");
-        }
-    }
-
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        Debug.Log("Car hit! Game Over!");
-
-       
-        GameOverManager.Instance.ShowGameOver(HighScoreManager.Instance.GetCurrentScore());
-
-        
-        Destroy(gameObject);
-    }
-    private void Die()
-    {
-        Debug.Log("Car Destroyed!");
-       
-        Destroy(gameObject);
-    }
-
-    void Update()
-    {
-        
     }
 }

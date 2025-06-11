@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,43 +9,52 @@ public class HighScoreManager : MonoBehaviour
     public static HighScoreManager Instance; 
 
     [Header("UI Elements")]
-    public Text highScoreText;  // Text UI to display the high score
-
-    private int highScore;  // Variable to store the high score
+    public Text highScoreText;  
+    private int highScore;
 
     private void Awake()
     {
         if (Instance == null)
         {
-            Instance = this;
+            Instance = this;  
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject);  
         }
 
-        LoadHighScore();  // Load high score when the game starts
+        LoadHighScore();  
     }
+
 
     private void LoadHighScore()
     {
-        highScore = PlayerPrefs.GetInt("HighScore", 0);  // Load saved high score, default to 0 if not set
+        highScore = PlayerPrefs.GetInt("HighScore", 0);  
         UpdateHighScoreText();
     }
 
+   
     public void SaveHighScore(int score)
     {
         if (score > highScore)
         {
-            highScore = score;  // Update high score if new score is higher
-            PlayerPrefs.SetInt("HighScore", highScore);  // Save new high score
-            PlayerPrefs.Save();  // Save changes
-            UpdateHighScoreText();  // Update the UI
+            highScore = score;  
+            PlayerPrefs.SetInt("HighScore", highScore);
+            PlayerPrefs.Save();  
+            UpdateHighScoreText(); 
         }
     }
 
+    
     private void UpdateHighScoreText()
     {
-        highScoreText.text = "High Score: " + highScore.ToString();  // Update the UI with the high score
+        highScoreText.text = "High Score: " + highScore.ToString();  
     }
+
+   
+    public int GetHighScore()
+    {
+        return highScore;
+    }
+
 }

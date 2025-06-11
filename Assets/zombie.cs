@@ -59,24 +59,20 @@ public class zombie : MonoBehaviour
         animator.SetTrigger("Dead");
         Destroy(gameObject, 1f);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-        if (collision.gameObject.CompareTag("Car"))
+        private void OnTriggerEnter2D(Collider2D other)
         {
+          
+            if (other.CompareTag("Car"))
+            {
+                
+                Debug.Log("Zombie hit the car! Game Over!");
 
-            carhealth carHealth = collision.gameObject.GetComponent<carhealth>();
-            if (carHealth != null)
-            {
-               
-                carHealth.TakeDamage(1);  
-                Destroy(gameObject);  
-            }
-            else
-            {
-                Debug.LogError("CarHealth component is missing on the car!");
+                
+                GameOverManager.Instance.ShowGameOver(HighScoreManager.Instance.GetHighScore());
+
+                Destroy(gameObject);
             }
         }
-    }
+    
 
 }
